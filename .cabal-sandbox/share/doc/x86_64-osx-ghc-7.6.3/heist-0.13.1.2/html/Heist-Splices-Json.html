@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Heist.Splices.Json</title><link href="ocean.css" rel="stylesheet" type="text/css" title="Ocean" /><script src="haddock-util.js" type="text/javascript"></script><script type="text/javascript">//<![CDATA[
+window.onload = function () {pageLoad();setSynopsis("mini_Heist-Splices-Json.html");};
+//]]>
+</script></head><body><div id="package-header"><ul class="links" id="page-menu"><li><a href="index.html">Contents</a></li><li><a href="doc-index.html">Index</a></li></ul><p class="caption">heist-0.13.1.2: An Haskell template system supporting both HTML5 and XML.</p></div><div id="content"><div id="module-header"><table class="info"><tr><th>Safe Haskell</th><td>None</td></tr></table><p class="caption">Heist.Splices.Json</p></div><div id="synopsis"><p id="control.syn" class="caption expander" onclick="toggleSection('syn')">Synopsis</p><ul id="section.syn" class="hide" onclick="toggleSection('syn')"><li class="src short"><a href="#v:bindJson">bindJson</a> :: (<a href="file:///Users/wfreeman/neo4j-cypher-ex/.cabal-sandbox/share/doc/x86_64-osx-ghc-7.6.3/aeson-0.7.0.6/html/Data-Aeson-Types.html#t:ToJSON">ToJSON</a> a, <a href="file:///Library/Frameworks/GHC.framework/Versions/7.6.3-x86_64/usr/share/doc/ghc/html/libraries/base-4.6.0.1/Control-Monad.html#t:Monad">Monad</a> n) =&gt; a -&gt; <a href="Heist-Interpreted.html#t:Splice">Splice</a> n</li></ul></div><div id="interface"><h1>Documentation</h1><div class="top"><p class="src"><a name="v:bindJson" class="def">bindJson</a> :: (<a href="file:///Users/wfreeman/neo4j-cypher-ex/.cabal-sandbox/share/doc/x86_64-osx-ghc-7.6.3/aeson-0.7.0.6/html/Data-Aeson-Types.html#t:ToJSON">ToJSON</a> a, <a href="file:///Library/Frameworks/GHC.framework/Versions/7.6.3-x86_64/usr/share/doc/ghc/html/libraries/base-4.6.0.1/Control-Monad.html#t:Monad">Monad</a> n) =&gt; a -&gt; <a href="Heist-Interpreted.html#t:Splice">Splice</a> n</p><div class="doc"><p>This splice binds convenience tags for the given JSON (or
+ JSON-convertible) value and runs the tag's child nodes using the new
+ bindings.
+</p><p><em>Tags bound when you pass in an object</em>
+</p><p>Tags bound for an object looking like this:
+</p><pre> { &quot;k_1&quot;: v_1, ..., &quot;k_N&quot;: v_N }
+</pre><p><code>&lt;value:{k_i}&gt;</code>    -- treats v_i as text
+ <code>&lt;snippet:{k_i}&gt;</code>  -- treats v_i as HTML
+ <code>&lt;with:{k_i}&gt;</code>     -- explodes v_i and runs its children
+</p><p><code>&lt;value var=&quot;foo.bar.baz&quot;/&gt;</code> -- walks the JSON tree to find
+ &quot;foo.bar.baz&quot;, and interprets it as a string
+ <code>&lt;snippet var=&quot;foo.bar.baz&quot;/&gt;</code>
+ <code>&lt;with var=&quot;foo.bar.baz&quot;&gt;...&lt;with&gt;</code>
+</p><p><em>Tags bound when you pass in anything else</em>
+</p><p><code>&lt;value/&gt;</code>    --  the given JSON value, as a string
+ <code>&lt;snippet/&gt;</code>  --  the given JSON value, parsed and spliced in as HTML
+</p></div></div></div></div><div id="footer"><p>Produced by <a href="http://www.haskell.org/haddock/">Haddock</a> version 2.13.2</p></div></body></html>
